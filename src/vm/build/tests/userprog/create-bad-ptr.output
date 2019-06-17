@@ -1,0 +1,32 @@
+Copying tests/userprog/create-bad-ptr into /tmp/K7FUQ0Ecmv.dsk...
+Writing command line to /tmp/K4fBtk5RU8.dsk...
+qemu-system-i386 -hda /tmp/K4fBtk5RU8.dsk -hdb /tmp/kbTJVZdi7k.dsk -hdc /tmp/K7FUQ0Ecmv.dsk -hdd /tmp/jk4fOhmRDo.dsk -m 4 -net none -nographic -monitor null
+Kernel command line: -q -f put create-bad-ptr run create-bad-ptr
+Pintos booting with 4,096 kB RAM...
+374 pages available in kernel pool.
+374 pages available in user pool.
+Calibrating timer...  183,296,000 loops/s.
+hd0:0: detected 137 sector (68 kB) disk, model "QEMU HARDDISK", serial "QM00001"
+hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
+hd1:0: detected 105 sector (52 kB) disk, model "QEMU HARDDISK", serial "QM00003"
+hd1:1: detected 8,064 sector (3 MB) disk, model "QEMU HARDDISK", serial "QM00004"
+Formatting file system...done.
+Boot complete.
+Putting 'create-bad-ptr' into the file system...
+Executing 'create-bad-ptr':
+(create-bad-ptr) begin
+Kernel PANIC at ../../threads/synch.c:198 in lock_acquire(): assertion `!lock_held_by_current_thread (lock)' failed.
+Call stack: 0xc01072d9 0xc0102b9a 0xc010ccda 0xc010a8b2 0xc0101897 0xc01019cf 0xc010be59 0xc010b3cd 0xc010ad01 0xc010ae57 0xc0101897 0xc01019cf 0x804a173 0x80480fa 0x8048140 0x804878c.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Timer: 65 ticks
+Thread: 0 idle ticks, 65 kernel ticks, 0 user ticks
+hd0:0: 0 reads, 0 writes
+hd0:1: 65 reads, 221 writes
+hd1:0: 105 reads, 0 writes
+hd1:1: 0 reads, 0 writes
+Console: 1315 characters output
+Keyboard: 0 keys pressed
+Exception: 2 page faults
+Powering off...

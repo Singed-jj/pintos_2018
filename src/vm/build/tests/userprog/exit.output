@@ -1,0 +1,29 @@
+Copying tests/userprog/exit into /tmp/oxK59Q0LD8.dsk...
+Writing command line to /tmp/0UfQkBWs77.dsk...
+qemu-system-i386 -hda /tmp/0UfQkBWs77.dsk -hdb /tmp/VZDToNMg4K.dsk -hdc /tmp/oxK59Q0LD8.dsk -hdd /tmp/LgmCy9RTPF.dsk -m 4 -net none -nographic -monitor null
+Kernel command line: -q -f put exit run exit
+Pintos booting with 4,096 kB RAM...
+374 pages available in kernel pool.
+374 pages available in user pool.
+Calibrating timer...  157,081,600 loops/s.
+hd0:0: detected 137 sector (68 kB) disk, model "QEMU HARDDISK", serial "QM00001"
+hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
+hd1:0: detected 105 sector (52 kB) disk, model "QEMU HARDDISK", serial "QM00003"
+hd1:1: detected 8,064 sector (3 MB) disk, model "QEMU HARDDISK", serial "QM00004"
+Formatting file system...done.
+Boot complete.
+Putting 'exit' into the file system...
+Executing 'exit':
+(exit) begin
+exit: exit(57)
+Execution of 'exit' complete.
+Timer: 66 ticks
+Thread: 0 idle ticks, 66 kernel ticks, 0 user ticks
+hd0:0: 0 reads, 0 writes
+hd0:1: 62 reads, 218 writes
+hd1:0: 105 reads, 0 writes
+hd1:1: 0 reads, 0 writes
+Console: 854 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...

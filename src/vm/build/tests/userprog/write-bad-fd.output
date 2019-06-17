@@ -1,0 +1,30 @@
+Copying tests/userprog/write-bad-fd into /tmp/L7_Fcoq1mF.dsk...
+Writing command line to /tmp/tBJrUBlSAD.dsk...
+qemu-system-i386 -hda /tmp/tBJrUBlSAD.dsk -hdb /tmp/J6AC4MfnBT.dsk -hdc /tmp/L7_Fcoq1mF.dsk -hdd /tmp/bwTY5it6Cc.dsk -m 4 -net none -nographic -monitor null
+Kernel command line: -q -f put write-bad-fd run write-bad-fd
+Pintos booting with 4,096 kB RAM...
+374 pages available in kernel pool.
+374 pages available in user pool.
+Calibrating timer...  130,867,200 loops/s.
+hd0:0: detected 137 sector (68 kB) disk, model "QEMU HARDDISK", serial "QM00001"
+hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
+hd1:0: detected 105 sector (52 kB) disk, model "QEMU HARDDISK", serial "QM00003"
+hd1:1: detected 8,064 sector (3 MB) disk, model "QEMU HARDDISK", serial "QM00004"
+Formatting file system...done.
+Boot complete.
+Putting 'write-bad-fd' into the file system...
+Executing 'write-bad-fd':
+(write-bad-fd) begin
+(write-bad-fd) end
+write-bad-fd: exit(0)
+Execution of 'write-bad-fd' complete.
+Timer: 67 ticks
+Thread: 0 idle ticks, 67 kernel ticks, 0 user ticks
+hd0:0: 0 reads, 0 writes
+hd0:1: 63 reads, 218 writes
+hd1:0: 105 reads, 0 writes
+hd1:1: 0 reads, 0 writes
+Console: 928 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...

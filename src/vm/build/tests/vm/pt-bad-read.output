@@ -1,0 +1,35 @@
+Copying tests/vm/pt-bad-read into /tmp/MtTByMFWRu.dsk...
+Copying ../../tests/vm/sample.txt into /tmp/MtTByMFWRu.dsk...
+Writing command line to /tmp/CFLJXUUbtY.dsk...
+qemu-system-i386 -hda /tmp/CFLJXUUbtY.dsk -hdb /tmp/KjHxureAqg.dsk -hdc /tmp/MtTByMFWRu.dsk -hdd /tmp/dTUH0hTiRo.dsk -m 4 -net none -nographic -monitor null
+Kernel command line: -q -f put pt-bad-read put sample.txt run pt-bad-read
+Pintos booting with 4,096 kB RAM...
+374 pages available in kernel pool.
+374 pages available in user pool.
+Calibrating timer...  52,377,600 loops/s.
+hd0:0: detected 137 sector (68 kB) disk, model "QEMU HARDDISK", serial "QM00001"
+hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
+hd1:0: detected 108 sector (54 kB) disk, model "QEMU HARDDISK", serial "QM00003"
+hd1:1: detected 8,064 sector (3 MB) disk, model "QEMU HARDDISK", serial "QM00004"
+Formatting file system...done.
+Boot complete.
+Putting 'pt-bad-read' into the file system...
+Putting 'sample.txt' into the file system...
+Executing 'pt-bad-read':
+(pt-bad-read) begin
+(pt-bad-read) open "sample.txt"
+Kernel PANIC at ../../threads/synch.c:198 in lock_acquire(): assertion `!lock_held_by_current_thread (lock)' failed.
+Call stack: 0xc01072d9 0xc0102b9a 0xc010ccda 0xc010a8b2 0xc0101897 0xc01019cf 0xc0106deb 0xc010c41b 0xc010ba0b 0xc010abb2 0xc010aef5 0xc0101897 0xc01019cf 0x804a1df 0x804812c 0x8048784 0x80487b0.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Timer: 66 ticks
+Thread: 0 idle ticks, 66 kernel ticks, 0 user ticks
+hd0:0: 0 reads, 0 writes
+hd0:1: 95 reads, 226 writes
+hd1:0: 108 reads, 0 writes
+hd1:1: 0 reads, 0 writes
+Console: 1402 characters output
+Keyboard: 0 keys pressed
+Exception: 2 page faults
+Powering off...

@@ -1,0 +1,43 @@
+Copying tests/vm/page-parallel into /tmp/1QHTeFfDHD.dsk...
+Copying tests/vm/child-linear into /tmp/1QHTeFfDHD.dsk...
+Writing command line to /tmp/xw0tutGwqM.dsk...
+qemu-system-i386 -hda /tmp/xw0tutGwqM.dsk -hdb /tmp/VlGRenoy_9.dsk -hdc /tmp/1QHTeFfDHD.dsk -hdd /tmp/Md__z_p93f.dsk -m 4 -net none -nographic -monitor null
+Kernel command line: -q -f put page-parallel put child-linear run page-parallel
+Pintos booting with 4,096 kB RAM...
+374 pages available in kernel pool.
+374 pages available in user pool.
+Calibrating timer...  202,956,800 loops/s.
+hd0:0: detected 137 sector (68 kB) disk, model "QEMU HARDDISK", serial "QM00001"
+hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
+hd1:0: detected 216 sector (108 kB) disk, model "QEMU HARDDISK", serial "QM00003"
+hd1:1: detected 8,064 sector (3 MB) disk, model "QEMU HARDDISK", serial "QM00004"
+Formatting file system...done.
+Boot complete.
+Putting 'page-parallel' into the file system...
+Putting 'child-linear' into the file system...
+Executing 'page-parallel':
+(page-parallel) begin
+(page-parallel) exec "child-linear"
+(page-parallel) exec "child-linear"
+(page-parallel) exec "child-linear"
+child-linear: exit(66)
+(child-linear) byte 533184 != 0: FAILED
+child-linear: exit(1)
+(page-parallel) exec "child-linear"
+(page-parallel) exec "child-linear": FAILED
+page-parallel: exit(1)
+Kernel PANIC at ../../devices/disk.c:251 in disk_write(): assertion `buffer != NULL' failed.
+Call stack: 0xc01072d9 0xc0104860 0xc010d238 0xc010cdca 0xc010ce92 0xc010ced0 0xc010a904 0xc0101897 0xc01019cf 0x80482a8 0x8048173 0x804890c.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Timer: 1182 ticks
+Thread: 0 idle ticks, 76 kernel ticks, 1106 user ticks
+hd0:0: 0 reads, 0 writes
+hd0:1: 216 reads, 442 writes
+hd1:0: 216 reads, 0 writes
+hd1:1: 15728 reads, 17608 writes
+Console: 1618 characters output
+Keyboard: 0 keys pressed
+Exception: 1967 page faults
+Powering off...

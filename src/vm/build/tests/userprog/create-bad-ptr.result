@@ -1,0 +1,25 @@
+FAIL
+Kernel panic in run: PANIC at ../../threads/synch.c:198 in lock_acquire(): assertion `!lock_held_by_current_thread (lock)' failed.
+Call stack: 0xc01072d9 0xc0102b9a 0xc010ccda 0xc010a8b2 0xc0101897 0xc01019cf 0xc010be59 0xc010b3cd 0xc010ad01 0xc010ae57 0xc0101897 0xc01019cf 0x804a173 0x80480fa 0x8048140 0x804878c
+Translation of call stack:
+In kernel.o:
+0xc01072d9: debug_panic (.../../lib/kernel/debug.c:34)
+0xc0102b9a: lock_acquire (...../../threads/synch.c:200)
+0xc010ccda: frame_lock_acquire (...uild/../../vm/frame.c:129)
+0xc010a8b2: pg_round_down (.../../../threads/vaddr.h:40)
+0xc0101897: intr_handler (..../threads/interrupt.c:361)
+0xc01019cf: intr_entry (threads/intr-stubs.S:38)
+0xc010be59: dir_add (..../filesys/directory.c:152)
+0xc010b3cd: filesys_create (..../../filesys/filesys.c:51)
+0xc010ad01: create (...../userprog/syscall.c:170)
+0xc010ae57: syscall_handler (.../../userprog/syscall.c:61)
+0xc0101897: intr_handler (..../threads/interrupt.c:361)
+0xc01019cf: intr_entry (threads/intr-stubs.S:38)
+In tests/userprog/create-bad-ptr:
+0x0804a173: create (.../../lib/user/syscall.c:93)
+0x080480fa: test_main (...rprog/create-bad-ptr.c:11)
+0x08048140: main (...ild/../../tests/main.c:13)
+0x0804878c: _start (.../../../lib/user/entry.c:9)
+Translations of user virtual addresses above are based on a guess at
+the binary to use.  If this guess is incorrect, then those
+translations will be misleading.

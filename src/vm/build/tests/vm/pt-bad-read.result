@@ -1,0 +1,26 @@
+FAIL
+Kernel panic in run: PANIC at ../../threads/synch.c:198 in lock_acquire(): assertion `!lock_held_by_current_thread (lock)' failed.
+Call stack: 0xc01072d9 0xc0102b9a 0xc010ccda 0xc010a8b2 0xc0101897 0xc01019cf 0xc0106deb 0xc010c41b 0xc010ba0b 0xc010abb2 0xc010aef5 0xc0101897 0xc01019cf 0x804a1df 0x804812c 0x8048784 0x80487b0
+Translation of call stack:
+In kernel.o:
+0xc01072d9: debug_panic (.../../lib/kernel/debug.c:34)
+0xc0102b9a: lock_acquire (...../../threads/synch.c:200)
+0xc010ccda: frame_lock_acquire (...uild/../../vm/frame.c:129)
+0xc010a8b2: pg_round_down (.../../../threads/vaddr.h:40)
+0xc0101897: intr_handler (..../threads/interrupt.c:361)
+0xc01019cf: intr_entry (threads/intr-stubs.S:38)
+0xc0106deb: memcpy (...ild/../../lib/string.c:16)
+0xc010c41b: inode_read_at (...../../filesys/inode.c:243)
+0xc010ba0b: file_read (...d/../../filesys/file.c:73)
+0xc010abb2: read (...../userprog/syscall.c:250)
+0xc010aef5: syscall_handler (.../../userprog/syscall.c:84)
+0xc0101897: intr_handler (..../threads/interrupt.c:361)
+0xc01019cf: intr_entry (threads/intr-stubs.S:38)
+In tests/vm/pt-bad-read:
+0x0804a1df: read (...../lib/user/syscall.c:117)
+0x0804812c: test_main (...tests/vm/pt-bad-read.c:15)
+0x08048784: main (...ild/../../tests/main.c:13)
+0x080487b0: _start (.../../../lib/user/entry.c:9)
+Translations of user virtual addresses above are based on a guess at
+the binary to use.  If this guess is incorrect, then those
+translations will be misleading.

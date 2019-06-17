@@ -1,0 +1,21 @@
+FAIL
+Kernel panic in run: PANIC at ../../devices/disk.c:251 in disk_write(): assertion `buffer != NULL' failed.
+Call stack: 0xc01072d9 0xc0104860 0xc010d238 0xc010cdca 0xc010ce92 0xc010ced0 0xc010a904 0xc0101897 0xc01019cf 0x80482a8 0x8048173 0x804890c
+Translation of call stack:
+In kernel.o:
+0xc01072d9: debug_panic (.../../lib/kernel/debug.c:34)
+0xc0104860: disk_write (.../../../devices/disk.c:253)
+0xc010d238: swap_out (.../build/../../vm/swap.c:39)
+0xc010cdca: clear_victim (...uild/../../vm/frame.c:104)
+0xc010ce92: find_victim (...build/../../vm/frame.c:99)
+0xc010ced0: frame_palloc_get_page (...build/../../vm/frame.c:37)
+0xc010a904: page_fault (.../userprog/exception.c:189)
+0xc0101897: intr_handler (..../threads/interrupt.c:361)
+0xc01019cf: intr_entry (threads/intr-stubs.S:38)
+In tests/vm/page-parallel:
+0x080482a8: vmsg (...uild/../../tests/lib.c:24)
+0x08048173: shuffle (...uild/../../tests/lib.c:67)
+0x0804890c: random_bytes (...ild/../../lib/random.c:61)
+Translations of user virtual addresses above are based on a guess at
+the binary to use.  If this guess is incorrect, then those
+translations will be misleading.
